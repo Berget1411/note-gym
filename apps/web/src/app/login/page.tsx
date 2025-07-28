@@ -1,16 +1,20 @@
-"use client"
+"use client";
 
-import SignInForm from "@/components/sign-in-form";
-import SignUpForm from "@/components/sign-up-form";
-import { useState } from "react";
-
+import { SignInForm } from "@/components/auth";
+import { Edit2 } from "lucide-react";
 
 export default function LoginPage() {
-  const [showSignIn, setShowSignIn] = useState(false);
-
-  return showSignIn ? (
-    <SignInForm onSwitchToSignUp={() => setShowSignIn(false)} />
-  ) : (
-    <SignUpForm onSwitchToSignIn={() => setShowSignIn(true)} />
+  return (
+    <div className='bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10'>
+      <div className='flex w-full max-w-sm flex-col gap-6'>
+        <a href='#' className='flex items-center gap-2 self-center font-medium'>
+          <div className='bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md'>
+            <Edit2 className='size-4' />
+          </div>
+          SmartNotes
+        </a>
+        <SignInForm />
+      </div>
+    </div>
   );
 }
